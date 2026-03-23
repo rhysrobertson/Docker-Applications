@@ -1,0 +1,4 @@
+paho-mqtt
+requests
+influxdb-client
+pymodbus==2.5.3

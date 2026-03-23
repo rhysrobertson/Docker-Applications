@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  balluff-app:
+    build: .
+    image: influx-write-app
+    container_name: influx-write-app
+    environment:
+      INFLUX_URL: http://192.168.2.235:8086
+      INFLUX_TOKEN: vibration-token
+      INFLUX_ORG: balluff
+      INFLUX_WAGO_BUCKET: energy
+      INFLUX_VIB_BUCKET: vibration
+      CMTK_IP: 192.168.2.13
+      CMTK_USER: admin
+      CMTK_PASS: Applied123!
+      MODBUS_IP: 192.168.2.17
+      MODBUS_PORT: 502
+      UNIT_ID: 1
+    restart: unless-stopped
+
