@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  vibration-ui:
+    build: .
+    image: cctv-ui
+    container_name: cctv-ui
+
+    environment:
+      CAMERA_IP: 192.168.2.12
+      CAMERA_USER: root
+      CAMERA_PASSWORD: Applied123!
+      DISPLAY: ${DISPLAY}
+      QT_X11_NO_MITSHM: 1
+      XAUTHORITY: /tmp/.Xauthority
+
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /run/user/1000/gdm/Xauthority:/tmp/.Xauthority:ro
+
+    network_mode: host
